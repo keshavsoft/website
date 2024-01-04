@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+    <main>
+        <div class="container">
+            <button class="btn btn-primary mb-3 mt-lg-auto w-100" id="GenerateQrCodeButtonId">Generate QrCode</button>
+            <button class="btn btn-success mb-0 mt-lg-auto w-100" id="MultipleQrCodeButtonId">Multiple QrCodes</button>
+        </div>
+    </main>
+
+    <div class="modal fade" id="ModalForQrCode" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">QrCodes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="ModalBody">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="printJS('ModalBody', 'html')">Print</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <!-- place footer here -->
+    </footer>
+
+
+    <!-- Modal for only qrcode -->
+    <div class="modal fade" id="ModalForQrCodeOnly" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">QrCodesOnly</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="ModalBodyorQrCodeOnly">
+                    <div>
+                        <div style="width: 75%; float: left; height: 70px;">
+
+                            <div class="row">
+
+                                <div style="text-align: left;" class="col">
+                                    <b>
+                                        MAGUVA
+                                    </b>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+                                <b>
+                                    <div style="text-align: left; font-family: Arial, sans-serif;" class="col"
+                                        id="ProductNameModalId">Shirt
+                                    </div>
+                                </b>
+                            </div>
+                            <div class="row">
+                                <div style="text-align: left;" class="col" id="ProductAliasNameModalId">
+                                    cotton
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div style="text-align: left;" class="col" id="UserDescriptionModalId">
+                                    new
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div style="text-align: left;" class="col">
+                                    <b>
+                                        MRP. </b><b id="SalePriceModalId">10000</b>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <div style="margin-left: 75%; height: 70px;">
+
+                            <div class="row">
+                                <div style="text-align: right;" class="col">
+                                    <canvas id="CanvasId" width=1 height=1
+                                        style="border:1px solid #fff;visibility:hidden"></canvas>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div style="text-align: center;" class="col" id="QrCodeOnModalId"> M-16
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"
+                        onclick="printJS('ModalBodyorQrCodeOnly', 'html')">Print</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+
+    <script src="./js/bwip-js-min.js"></script>
+
+    <script src="./js/print.min.js"></script>
+
+    <script>
+        let StartFunc = () => {
+            let jVarLocalShowQrCodeButtonId = document.getElementById("GenerateQrCodeButtonId");
+
+            jVarLocalShowQrCodeButtonId.addEventListener("click", jFShowQrCodeButtonClickFunc);
+        };
+
+        let jFShowQrCodeButtonClickFunc = () => {
+            GenerateQrCodeOnModal({
+                inQrData: "M-16/Uppada Saree/UPS/KS-1665-4/1600",
+                inCanvasId: document.getElementById("CanvasId")
+            });
+
+            let jVarLocalId = "ModalForQrCodeOnly";
+
+            var myModal = new bootstrap.Modal(document.getElementById(jVarLocalId), { keyboard: true, focus: true });
+
+            myModal.show();
+        };
+
+        let jFShowQrCodeDetails = ({ inData }) => {
+            let jVarLocalQrCodeOnModalId = document.getElementById("QrCodeOnModalId");
+            jVarLocalQrCodeOnModalId.innerText = inData.Barcode;
+        };
+
+
+        let jFShowItemNameLabelIdDetails = ({ inData }) => {
+            console.log("inData", inData);
+            let jVarLocalItemNameLabelId = document.getElementById("ProductNameModalId");
+            jVarLocalItemNameLabelId.innerText = inData.ProductName;
+        };
+
+        let jFShowProductAliasNameIdDetails = ({ inData }) => {
+            let jVarLocalProductAliasNameId = document.getElementById("ProductAliasNameModalId");
+            jVarLocalProductAliasNameId.innerText = inData.ProductAliasName;
+        };
+
+        let jFShowUserDescriptionDetails = ({ inData }) => {
+            let jVarLocalUserDescription = document.getElementById("UserDescriptionModalId");
+            jVarLocalUserDescription.innerText = inData.UserDescription;
+        };
+        let jFShowUserSalePriceDetails = ({ inData }) => {
+            let jVarLocalSalePrice = document.getElementById("SalePriceModalId");
+            jVarLocalSalePrice.innerText = inData.SalePrice;
+        };
+
+        let DataFromDom = () => {
+            let jVarLocalReturnObject = {};
+
+            let jVarLocalBarcodeId = document.getElementById("BarcodeId");
+            let jVarLocalItemNameLabelId = document.getElementById("ItemNameLabelId");
+            let jVarLocalProductAliasName = document.getElementById("ProductAliasNameId");
+            let jVarLocalUserDescription = document.getElementById("UserDescriptionId");
+            let jVarLocalSalePrice = document.getElementById("SalePriceId");
+
+            jVarLocalReturnObject.Barcode = jVarLocalBarcodeId.innerText;
+            jVarLocalReturnObject.ProductName = jVarLocalItemNameLabelId.innerText;
+            jVarLocalReturnObject.ProductAliasName = jVarLocalProductAliasName.innerText;
+            jVarLocalReturnObject.UserDescription = jVarLocalUserDescription.innerText;
+            jVarLocalReturnObject.SalePrice = jVarLocalSalePrice.innerText;
+
+
+            return jVarLocalReturnObject;
+        };
+
+
+        let GenerateQrCodeOnModal = ({ inQrData = "", inCanvasId }) => {
+            var canvas = inCanvasId;
+            canvas.height = 1;
+            canvas.width = 1;
+            canvas.style.visibility = 'hidden';
+
+            // Convert the options to an object.
+            let opts = {};
+
+            // Finish up the options
+            opts.text = inQrData;
+            opts.bcid = "qrcode";
+            opts.scaleX = 1;
+            opts.scaleY = 1;
+            opts.rotate = "N";
+
+            // Draw the bar code to the canvas
+            try {
+                let ts0 = new Date;
+                bwipjs.toCanvas(canvas, opts);
+                show(ts0, new Date);
+            } catch (e) {
+                console.log("error : ", e);
+
+                return;
+            }
+
+            function show(ts0, ts1) {
+                canvas.style.visibility = 'visible';
+            }
+        };
+
+
+        // StartFunc();
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+    <script type="module" src="./js/QrCode.js"></script>
+</body>
+
+</html>
