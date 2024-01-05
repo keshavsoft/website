@@ -1,7 +1,7 @@
 import { StartFunc as StartFuncButtonClickFunc } from "./ButtonClickFunc.js";
 
 const StartFunc = () => {
-    let ButtonClickId = "OrginalColumnId";
+    let ButtonClickId = "SelectedColumnsId";
 
     let jVarLocalCreateFolderButtonId = document.getElementById(ButtonClickId);
 
