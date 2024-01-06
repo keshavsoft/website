@@ -14,7 +14,6 @@ const StartFunc = () => {
     JfWarrantyType({ tableHeadRowId });
     JfAgentRemarks({ tableHeadRowId });
     JfCallFromNo({ tableHeadRowId });
-    JfDistanceType({ tableHeadRowId });
     JfPanasonic({ tableHeadRowId });
 
 };
@@ -132,15 +131,6 @@ const JfPanasonic = ({ FromFetch, tableHeadRowId }) => {
     jVarLocalNewTh.dataset.field = "Brand";
     jVarLocalNewTh.setAttribute("data-filter-control", "select");
     jVarLocalNewTh.innerHTML = "Brand";
-    tableHeadRowId.appendChild(jVarLocalNewTh);
-};
-
-const JfDistanceType = ({ FromFetch, tableHeadRowId }) => {
-
-    let jVarLocalNewTh = document.createElement("th");
-    jVarLocalNewTh.dataset.field = "DistanceType";
-    jVarLocalNewTh.setAttribute("data-filter-control", "select");
-    jVarLocalNewTh.innerHTML = "Distance Type";
     tableHeadRowId.appendChild(jVarLocalNewTh);
 };
 
