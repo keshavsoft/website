@@ -26,20 +26,7 @@ let StartFunc = async () => {
 
 let convertCsvToJsonFunction = (csvData) => {
     const parsedData = Papa.parse(csvData, { header: true });
-    console.log("parsedData:",parsedData);
-
-    const selectedData = parsedData.data.map(({
-        'Job Id': JobId, 'Created Date': CreationDate,
-        'Customer Name': CustomerName, Address, 'Mobile No': MobileNo,
-        'Contact No': ContactNo, ModelName, 'Job Classification': JobClassification, ProductGroupName, 'Warranty Type': WarrantyType, 'Agent Remarks': AgentRemarks, CallFromNo, "Panasonic":Brand,"Distance Type":DistanceType
-    }) => ({ JobId, CreationDate, CustomerName, Address, MobileNo, ContactNo, ModelName, JobClassification, ProductGroupName, WarrantyType, AgentRemarks, CallFromNo,DistanceType, Brand }));
-
-    return selectedData;
-}
-
-// let convertCsvToJsonFunction = (csvData) => {
-//     const parsedData = Papa.parse(csvData, { header: true });
-//     return parsedData.data;
-// };
+    return parsedData.data;
+};
 
 export { StartFunc };

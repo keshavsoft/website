@@ -31,8 +31,8 @@ let convertCsvToJsonFunction = (csvData) => {
     const selectedData = parsedData.data.map(({
         'Job Id': JobId, 'Created Date': CreationDate,
         'Customer Name': CustomerName, Address, 'Mobile No': MobileNo,
-        'Contact No': ContactNo, ModelName, 'Job Classification': JobClassification, ProductGroupName, 'Warranty Type': WarrantyType, 'Agent Remarks': AgentRemarks, CallFromNo, "Panasonic":Brand,"Distance Type":DistanceType
-    }) => ({ JobId, CreationDate, CustomerName, Address, MobileNo, ContactNo, ModelName, JobClassification, ProductGroupName, WarrantyType, AgentRemarks, CallFromNo,DistanceType, Brand }));
+        'Contact No': ContactNo, ModelName, 'Job Classification': JobClassification, ProductGroupName, 'Warranty Type': WarrantyType, 'Agent Remarks': AgentRemarks, CallFromNo, "Panasonic":Brand
+    }) => ({ JobId, CreationDate, CustomerName, Address, MobileNo, ContactNo, ModelName, JobClassification, ProductGroupName, WarrantyType, AgentRemarks, CallFromNo, Brand }));
 
     return selectedData;
 }

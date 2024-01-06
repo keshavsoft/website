@@ -14,7 +14,6 @@ const StartFunc = () => {
     JfWarrantyType({ tableHeadRowId });
     JfAgentRemarks({ tableHeadRowId });
     JfCallFromNo({ tableHeadRowId });
-    JfDistanceType({ tableHeadRowId });
     JfPanasonic({ tableHeadRowId });
 
 };
@@ -22,9 +21,9 @@ const StartFunc = () => {
 const JfjobNumber = ({ FromFetch, tableHeadRowId }) => {
 
     let jVarLocalNewTh = document.createElement("th");
-    jVarLocalNewTh.dataset.field = "JobId";
+    jVarLocalNewTh.dataset.field = "Jobno";
     jVarLocalNewTh.setAttribute("data-filter-control", "select");
-    jVarLocalNewTh.innerHTML = "Job Id";
+    jVarLocalNewTh.innerHTML = "Job no";
     tableHeadRowId.appendChild(jVarLocalNewTh);
 };
 const JfCreationDate = ({ FromFetch, tableHeadRowId }) => {
@@ -129,18 +128,9 @@ const JfCallFromNo = ({ FromFetch, tableHeadRowId }) => {
 const JfPanasonic = ({ FromFetch, tableHeadRowId }) => {
 
     let jVarLocalNewTh = document.createElement("th");
-    jVarLocalNewTh.dataset.field = "Brand";
+    jVarLocalNewTh.dataset.field = "Panasonic";
     jVarLocalNewTh.setAttribute("data-filter-control", "select");
-    jVarLocalNewTh.innerHTML = "Brand";
-    tableHeadRowId.appendChild(jVarLocalNewTh);
-};
-
-const JfDistanceType = ({ FromFetch, tableHeadRowId }) => {
-
-    let jVarLocalNewTh = document.createElement("th");
-    jVarLocalNewTh.dataset.field = "DistanceType";
-    jVarLocalNewTh.setAttribute("data-filter-control", "select");
-    jVarLocalNewTh.innerHTML = "Distance Type";
+    jVarLocalNewTh.innerHTML = "Panasonic";
     tableHeadRowId.appendChild(jVarLocalNewTh);
 };
 

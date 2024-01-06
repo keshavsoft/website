@@ -26,13 +26,13 @@ let StartFunc = async () => {
 
 let convertCsvToJsonFunction = (csvData) => {
     const parsedData = Papa.parse(csvData, { header: true });
-    console.log("parsedData:",parsedData);
+    console.log("parsedData:", parsedData);
 
     const selectedData = parsedData.data.map(({
-        'Job Id': JobId, 'Created Date': CreationDate,
-        'Customer Name': CustomerName, Address, 'Mobile No': MobileNo,
-        'Contact No': ContactNo, ModelName, 'Job Classification': JobClassification, ProductGroupName, 'Warranty Type': WarrantyType, 'Agent Remarks': AgentRemarks, CallFromNo, "Panasonic":Brand,"Distance Type":DistanceType
-    }) => ({ JobId, CreationDate, CustomerName, Address, MobileNo, ContactNo, ModelName, JobClassification, ProductGroupName, WarrantyType, AgentRemarks, CallFromNo,DistanceType, Brand }));
+        'ExternalReferenceID': Jobno, 'Servify Call Creation Date': CreationDate, 'Servify Status': Status,
+        'Customer Name': CustomerName, 'Customer Address': Address, 'Customer Mobile No': MobileNo,
+        'Customer Alternate Mobile No.': ContactNo, 'Product Name': ModelName, 'Delivery Type': JobClassification, 'Product Category': ProductGroupName, 'Warranty': WarrantyType, 'SubServiceType': JobType, 'PinCode': Distancetype, 'Last Visit Remarks': AgentRemarks, 'Created By': DealerName, CallFromNo, Brand
+    }) => ({ Jobno, CreationDate, Status, CustomerName, Address, MobileNo, ContactNo, ModelName, JobClassification, ProductGroupName, WarrantyType, JobType, Distancetype, AgentRemarks, DealerName, CallFromNo, Brand }));
 
     return selectedData;
 }
