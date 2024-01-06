@@ -1,5 +1,7 @@
-const StartFunc = ({ FromFetch, tableHeadRowId }) => {
-    console.log("FromFetch:",FromFetch);
+const StartFunc = () => {
+    let jVarLocalHtmlId = 'tableHeadRow';
+    let tableHeadRowId = document.getElementById(jVarLocalHtmlId);
+    tableHeadRowId.innerHTML = "";
     JfjobNumber({ tableHeadRowId });
     JfCreationDate({ tableHeadRowId });
     JfCustomerName({ tableHeadRowId });
@@ -13,7 +15,7 @@ const StartFunc = ({ FromFetch, tableHeadRowId }) => {
     JfAgentRemarks({ tableHeadRowId });
     JfCallFromNo({ tableHeadRowId });
     JfPanasonic({ tableHeadRowId });
-    
+
 };
 
 const JfjobNumber = ({ FromFetch, tableHeadRowId }) => {
