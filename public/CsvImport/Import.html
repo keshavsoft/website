@@ -75,11 +75,41 @@
                         <input class="form-control" type="file" id="csvFileInput" accept=".csv">
                         <button type="button" name="" id="OrginalColumnId" class="btn btn-primary m-2">Orginal Columns</button>
                         <button type="button" name="" id="SelectedColumnsId" class="btn btn-primary m-2">Selected Colums</button>
-                        <button class="btn btn-outline-primary btn-sm export mb-0 mt-sm-0 mt-1"  type="button" name="button"><a href="./ImporHelp.html" target=”_blank”>Help</a></button>
+                        <button class="btn btn-outline-primary btn-sm export mb-0 mt-sm-0 mt-1" id="ModalButtonId"  type="button" name="button">Help</button>
 
                     </div>
                 </div>
                 <div class="card-body">
+                    <div class="modal" id="ModelId" tabindex="-1">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Important Keys</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="h2">1.Need Job no</div>
+                                <div class="h2">2.Need CreationDate</div>
+                                <div class="h2">3.Need CustomerName</div>
+                                <div class="h2">4.Need Address</div>
+                                <div class="h2">5.Need MobileNo</div>
+                                <div class="h2">6.Need ContactNo</div>
+                                <div class="h2">7.Need ModelName</div>
+                                <div class="h2">8.Need JobClassification</div>
+                                <div class="h2">9.Need ProductGroupName</div>
+                                <div class="h2">10.Need WarrantyType</div>
+                                <div class="h2">11.Need AgentRemarks</div>
+                                <div class="h2">12.Need CallFromNo</div>
+                                <div class="h2">13.Need Brand</div>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
                     <table id="table" data-toolbar="#toolbar" data-search="true" data-pagination="true"
                         data-searchable="true" data-show-columns="true" data-show-footer="true"
                         data-show-columns-toggle-all="true" data-click-to-select="true" data-filter-control="true"
